@@ -113,6 +113,7 @@ impl IntoRawFd for Fd {
     }
 }
 
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 impl Drop for Fd {
     fn drop(&mut self) {
         unsafe {
