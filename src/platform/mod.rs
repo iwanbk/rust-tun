@@ -23,9 +23,12 @@ pub mod linux;
 pub use self::linux::{create, Configuration, Device, Queue};
 
 #[cfg(target_os = "macos")]
-pub mod macos;
+pub mod ios;
+//pub mod macos;
+
 #[cfg(target_os = "macos")]
-pub use self::macos::{create, Configuration, Device, Queue};
+pub use self::ios::{create, Configuration, Device, Queue};
+//pub use self::macos::{create, Configuration, Device, Queue};
 
 #[cfg(target_os = "ios")]
 pub mod ios;
