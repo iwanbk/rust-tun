@@ -22,9 +22,14 @@ pub mod linux;
 #[cfg(target_os = "linux")]
 pub use self::linux::{create, Configuration, Device, Queue};
 
-#[cfg(target_os = "macos")]
+#[cfg(all(target_os = "macos", feature = "appstore"))]
+pub mod ios;
+#[cfg(all(target_os = "macos", feature = "appstore"))]
+pub use self::ios::{create, Configuration, Device, Queue};
+
+#[cfg(all(target_os = "macos", not(feature = "appstore")))]
 pub mod macos;
-#[cfg(target_os = "macos")]
+#[cfg(all(target_os = "macos", not(feature = "appstore")))]
 pub use self::macos::{create, Configuration, Device, Queue};
 
 #[cfg(target_os = "ios")]

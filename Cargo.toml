@@ -10,6 +10,7 @@ description = "TUN device creation and handling."
 repository = "https://github.com/meh/rust-tun"
 keywords = ["tun", "network", "tunnel", "bindings"]
 
+
 [dependencies]
 byteorder = { version = "1", optional = true }
 bytes = { version = "1", optional = true }
@@ -32,6 +33,7 @@ packet = "0.1"
 
 [features]
 async = ["tokio", "tokio-util", "bytes", "byteorder", "futures-core"]
+appstore = []
 
 [[example]]
 name = "read-async"
